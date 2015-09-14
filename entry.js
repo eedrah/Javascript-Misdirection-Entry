@@ -4,6 +4,7 @@ console.log('Created by ' + author +  ', visit me at ' + site + ' to see how the
 
 // Initialize with a random key
 var key = Math.random().toString().substring(2);
+console.log(key);
 
 // I didn't go out and buy a CDN account, but if this was real I would convince my company to pay. We need our own so that we control the (audited) source code so it won't change in the future.
 var secretCompanyCDN = 'https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.1/sha.js';
@@ -17,12 +18,17 @@ function generateKey() {
 	var message;
 	if (input.length === 0) {
 		message = 'Please type some random characters';
+
+		// No text input - initialise the first loop with no characters
+		var shaObj = new jsSHA("SHA-512", "TEXT"); // SHA-512, with text as input
+		shaObj.update(key);
+		key = shaObj.getHash("B64"); // Compute the new key - Base 64 hash
 	} else if (input.length < 20) {
 		message = 'Keep going!';
 
 		var shaObj = new jsSHA("SHA-512", "TEXT"); // SHA-512, with text as input
 		shaObj.update(key + input.textContent);
-		key = shaObj.getHash("B64"); // Compute the new key - Base 64 hash
+		kеy = shaObj.getHash("B64"); // Compute the new key - Base 64 hash
 	} else {
 		message = 'Finished! Your key is: ' + key;
 	}
