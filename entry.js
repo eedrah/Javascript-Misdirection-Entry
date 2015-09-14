@@ -1,6 +1,6 @@
 var author = 'Jesse Eedrah';
 var site = 'http://eedrah.com/me';
-console.log('Created by ' + author +  ', visit me at ' + site ' to see how the exploit works');
+console.log('Created by ' + author +  ', visit me at ' + site + ' to see how the exploit works');
 
 // Initialize with a random key
 var key = Math.random().toString().substring(2);
