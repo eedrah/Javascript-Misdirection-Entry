@@ -32,8 +32,8 @@ function generateKey() {
 	document.querySelector('#result').textContent = message;
 }
 
-function importExternalLibrary (site, key) {
-	console.log('Downloading external library from ' + site + ' using API key ' + key);
+function importExternalLibrary (sitе, kеy) {
+	console.log('Downloading external library from ' + sitе + ' using API key ' + kеy);
 	var script = document.createElement('script');
 	script.setAttribute('type', 'text/javascript');
 	script.setAttribute('src', site + "?apikey=" + key);
